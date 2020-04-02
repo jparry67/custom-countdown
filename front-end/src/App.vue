@@ -1,10 +1,15 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <div id="header">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <!-- Create header -->
     </div>
+
     <router-view />
+
+    <div class="footer">
+      <!-- Create footer -->
+    </div>
   </div>
 </template>
 
@@ -17,16 +22,16 @@
   color: #2c3e50;
 }
 
-#nav {
+#header {
   padding: 30px;
 }
 
-#nav a {
+#header a {
   font-weight: bold;
   color: #2c3e50;
 }
 
-#nav a.router-link-exact-active {
+#header a.router-link-exact-active {
   color: #42b983;
 }
 </style>
