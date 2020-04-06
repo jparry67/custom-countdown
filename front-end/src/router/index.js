@@ -18,7 +18,8 @@ const routes = [
     component: Create
   },
   {
-    path: "/countdown/:id", component: Countdown
+    path: "/countdown/:id",
+    component: Countdown
   }
 ];
 
