@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="header">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>
       <!-- Create header -->
     </div>
 
@@ -14,12 +14,21 @@
 </template>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+body {
+  margin: 0;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: max-content 1fr max-content
 }
 
 #header {

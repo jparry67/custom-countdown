@@ -1,25 +1,36 @@
 <template>
-  <div class="countdown">
-    <img :src="this.path"/>
-    <div class="title">{{ title }}</div>
-    <div class="time">{{ time }}</div>
-  </div>
+<div class="countdown">
+    <div class="widget">
+        <CountdownWidget
+            :title="this.title" 
+            :time="this.time" 
+            :path="this.path"
+            :horizontalAlign="this.horizontalAlign" 
+            :verticalAlign="this.verticalAlign"
+            :color="this.color"
+            :size="this.size" ></CountdownWidget>
+    </div>
+</div>
 </template>
 
 <script>
 import axios from 'axios';
+import CountdownWidget from '../components/CountdownWidget.vue';
 
 export default {
   name: "Countdown",
+  components: {
+      CountdownWidget
+  },
   data() {
     return {
-      title,
-      time,
-      path,
-      days,
-      hours,
-      minutes,
-      seconds,
+      title: "",
+      time: null,
+      path: "",
+      horizontalAlign: "",
+      verticalAlign: "",
+      color: "",
+      size: 0,
     }
   },
   created() {
@@ -32,18 +43,21 @@ export default {
         this.title = response.data.title;
         this.time = new Date(response.data.time);
         this.path = response.data.path;
+        this.horizontalAlign = response.data.horizontalAlign;
+        this.verticalAlign = response.data.horizontalAlign;
+        this.color = response.data.color;
+        this.size = response.data.size;
       } catch (error) {
         console.error(error);
       }
     },
-    calculateTimeLeft() {
-
-      // this will rerun every second
-      // setTimeout(() => calculateTimeLeft(), 1000);
-    }
   }
 };
 </script>
 
 <style scoped>
+.widget {
+    height: 100%;
+    width: 100%;
+}
 </style>
