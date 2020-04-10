@@ -29,7 +29,7 @@
           <option value="flex-end">Right</option>
         </select>
         <h2 class="label">Select Text Color</h2>
-        <slider-picker v-model="this.colors" />
+        <slider-picker v-model="color" />
         <button class="upload-btn" @click="createCountdown">Create Countdown</button>
         <!-- Preview/customizable font family/color/location (alignment i.e. center, left, etc.) of title 
         Create new preview component that all views use. This component will allow us to change how the countdown works-->
@@ -46,18 +46,18 @@
             :path="this.filePath" 
             :verticalAlign="this.verticalAlign" 
             :horizontalAlign="this.horizontalAlign" 
-            :color="this.colors"/>
+            :color="this.color.hex"/>
         </div>
       </div>
       <div class="desktop-container">
         <h4>Desktop</h4>
         <div class="desktop">
           <CountdownWidget :title="this.title" 
-          :time="this.getTime" 
-          :path="this.filePath" 
-          :verticalAlign="this.verticalAlign" 
-          :horizontalAlign="this.horizontalAlign" 
-          :color="this.colors"/>
+            :time="this.getTime" 
+            :path="this.filePath" 
+            :verticalAlign="this.verticalAlign" 
+            :horizontalAlign="this.horizontalAlign" 
+            :color="this.color.hex"/>
         </div>
       </div>
     </div>
@@ -85,7 +85,7 @@ export default {
       verticalAlign: "center",
       horizontalAlign: "center",
       error: null,
-      colors: '#194d33e6',
+      color: { hex: '#194d33' },
     }
   },
   computed: {
@@ -124,6 +124,7 @@ export default {
           path: this.filePath,
           verticalAlign: this.verticalAlign,
           horizontalAlign: this.horizontalAlign,
+          color: this.color.hex,
         });
         const id = response.data._id;
         window.location.replace("http://localhost:8080/countdown/" + id);

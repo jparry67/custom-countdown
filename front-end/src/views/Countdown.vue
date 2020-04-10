@@ -44,7 +44,7 @@ export default {
         this.time = new Date(response.data.time);
         this.path = response.data.path;
         this.horizontalAlign = response.data.horizontalAlign;
-        this.verticalAlign = response.data.horizontalAlign;
+        this.verticalAlign = response.data.verticalAlign;
         this.color = response.data.color;
         this.size = response.data.size;
       } catch (error) {
