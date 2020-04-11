@@ -54,7 +54,7 @@ export default {
         this.font = response.data.font;
         this.justCreated = response.data.justCreated;
       } catch (error) {
-        console.error(error);
+        //console.error(error);
       }
     },
     alertUser() {
