@@ -11,7 +11,7 @@
         <h2 class="label">Countdown Title</h2>
         <input class="input" v-model="title" placeholder="Title">
         <h2 class="label">Countdown Date</h2>
-        <datetime type="datetime" v-model="time" :week-start="0" placeholder="Click to Select"
+        <datetime type="datetime" class="date-picker" v-model="time" :week-start="0" placeholder="Click to Select"
           input-style="font-family: 'Montserrat', sans-serif;
             font-size: 18px;
             background-color: #eeeeee;
@@ -86,6 +86,7 @@
             :font="this.font" />
         </div>
       </div>
+      <h4 class="desktop-replacement">To see a desktop preview, view this page on a desktop</h4>
     </div>
   </div>
 </template>
@@ -229,6 +230,7 @@ export default {
 </script>
 
 <style scoped>
+
 #header {
   /* Semi-circle */
   margin: 0 0 0 0;
@@ -416,5 +418,58 @@ button {
   background-color: white;
   height: 300px;
   width: 475px;
+}
+
+.desktop-replacement {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .form {
+    width: 90%;
+  }
+
+  .section {
+    grid-template-columns: repeat(1, 200px);
+    gap: 0px;
+  }
+
+  .label {
+    width: 100%;
+  }
+
+  .input {
+    width: 85%;
+  }
+
+  .date-picker {
+    width: 85%;
+  }
+
+  .vc-slider {
+    width: 160px;
+  }
+
+  .color-btn {
+    width: 30px;
+  }
+
+  .preview {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .desktop-container  {
+    display: none;
+  }
+
+  .desktop-replacement {
+    display: block;
+  }
+
+  .label {
+    text-align: center;
+  }
 }
 </style>
