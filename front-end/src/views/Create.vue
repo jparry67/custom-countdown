@@ -275,7 +275,7 @@ nav {
 }
 
 .form {
-  width: 45%;
+  width: 750px;
   margin: 30px auto;
   padding: 20px 0px;
   background-color: #f9f9f9;
