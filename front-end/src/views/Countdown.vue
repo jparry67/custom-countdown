@@ -8,7 +8,8 @@
             :horizontalAlign="this.horizontalAlign" 
             :verticalAlign="this.verticalAlign"
             :color="this.color"
-            :size="this.size" ></CountdownWidget>
+            :size="this.size"
+            :font="this.font" ></CountdownWidget>
     </div>
 </div>
 </template>
@@ -30,11 +31,14 @@ export default {
       horizontalAlign: "",
       verticalAlign: "",
       color: "",
-      size: 0,
+      size: "",
+      font: "",
+      justCreated: false,
     }
   },
   created() {
     this.getCountdown();
+    this.alertUser();
   },
   methods: {
     async getCountdown() {
@@ -47,10 +51,19 @@ export default {
         this.verticalAlign = response.data.verticalAlign;
         this.color = response.data.color;
         this.size = response.data.size;
+        this.font = response.data.font;
+        this.justCreated = response.data.justCreated;
       } catch (error) {
         console.error(error);
       }
     },
+    alertUser() {
+      setTimeout(() => {
+        if (this.justCreated) {
+          alert(`Your countdown was just created! Be sure to copy the url and bookmark this page!`);
+        }
+      }, 3000);
+    }
   }
 };
 </script>

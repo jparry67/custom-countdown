@@ -32,7 +32,9 @@ const countdownSchema = new mongoose.Schema({
   verticalAlign: String,
   horizontalAlign: String,
   color: String,
-  size: Number,
+  size: String,
+  font: String,
+  justCreated: Boolean,
 });
 
 // Create a model for items in the museum.
@@ -61,6 +63,8 @@ app.post('/api/countdowns', async (req, res) => {
     horizontalAlign: req.body.horizontalAlign,
     color: req.body.color,
     size: req.body.size,
+    font: req.body.font,
+    justCreated: true
   });
   try {
     await countdown.save();
@@ -76,6 +80,8 @@ app.get("/api/countdowns/:id", async (req, res) => {
       _id: req.params.id
     });
     res.send(countdown);
+    countdown.justCreated = false;
+    await countdown.save();
   } catch(error) {
     res.sendStatus(500);
   }

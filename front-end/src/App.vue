@@ -1,20 +1,15 @@
 <template>
-  <div id="app">
-    <div id="header">
-      <router-link to="/">Home</router-link>
-      <!-- Create header -->
-    </div>
-
+  <div id="app">  
     <router-view />
-
     <div class="footer">
-      <!-- Create footer -->
+      <a href="https://github.com/jparry67/custom-countdown" target="_blank">GitHub Repo</a>
+      <div>Created by Jacob Parry and Spencer Mitchell</div>
     </div>
   </div>
 </template>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Anton|Baloo+Paaji+2|Comic+Neue|Dancing+Script|Dosis|Girassol|Gotu|Indie+Flower|Lobster|Montserrat|Open+Sans+Condensed:300|Oswald|PT+Sans+Narrow|Playfair+Display&display=swap');
 
 body {
   margin: 0;
@@ -28,19 +23,23 @@ body {
   color: #2c3e50;
   height: 100vh;
   display: grid;
-  grid-template-rows: max-content 1fr max-content
+  grid-template-rows: 1fr max-content
 }
 
-#header {
-  padding: 30px;
+.footer {
+  background-color: #343434;
+  color: #ececec;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  gap: 20px;
 }
 
-#header a {
-  font-weight: bold;
-  color: #2c3e50;
+.footer a {
+  color: #ececec;
 }
 
-#header a.router-link-exact-active {
-  color: #42b983;
+.footer a:hover {
+  color: #3f51b5;  
 }
 </style>

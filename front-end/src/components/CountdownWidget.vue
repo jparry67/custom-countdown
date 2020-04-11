@@ -1,9 +1,9 @@
 <template>
   <div class="countdownwidget" v-bind:style="{ backgroundImage: 'url(' + this.path + ')' }">
-    <div class="info" v-bind:style="getAlignment">
+    <div class="info" v-bind:style="getStyle">
       <div class="title">{{ title }}</div>
       <div class="time" v-if="this.time">
-        {{ days }} days, {{ hours }} hours, {{ minutes }} minutes, {{ seconds }} seconds
+        {{ days }}&nbsp;days, {{ hours }}&nbsp;hours, {{ minutes }}&nbsp;minutes, {{ seconds }}&nbsp;seconds
       </div>
     </div>
   </div>
@@ -19,8 +19,9 @@ export default {
     path: String,
     verticalAlign: String,
     horizontalAlign: String,
-    size: Number,
     color: String,
+    size: String,
+    font: String,
   },
   data() {
     return {
@@ -34,11 +35,13 @@ export default {
     this.calculateTimeLeft();
   },
   computed: {
-    getAlignment() {
+    getStyle() {
       return {
         'justify-content': this.verticalAlign,
         'align-items': this.horizontalAlign,
         'color': this.color,
+        'font-size': this.size,
+        'font-family': this.font,
       }
     }
   },
@@ -60,6 +63,7 @@ export default {
 </script>
 
 <style scoped>
+
 .countdownwidget {
 	background-size: cover;
   background-position: center;
