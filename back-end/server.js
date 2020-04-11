@@ -20,7 +20,7 @@ const multer = require('multer')
 const upload = multer({
   dest: '../front-end/public/images/',
   limits: {
-    fileSize: 25000000
+    fileSize: 100000000
   }
 });
 
