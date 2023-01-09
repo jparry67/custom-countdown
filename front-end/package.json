@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
-    "luxon": "^1.23.0",
+    "luxon": "^1.28.1",
     "piklor.js": "^1.2.0",
     "vue": "^2.6.11",
     "vue-color": "^2.7.1",
